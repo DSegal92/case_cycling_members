@@ -9,6 +9,8 @@ gem 'rspec'
 gem 'sqlite3'
 gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 
+gem 'simplecov', :require => false, :group => 'test'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
