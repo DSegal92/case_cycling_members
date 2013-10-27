@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131025165620) do
+ActiveRecord::Schema.define(:version => 20131027212410) do
 
   create_table "blogs", :force => true do |t|
     t.string   "title"
@@ -53,7 +53,16 @@ ActiveRecord::Schema.define(:version => 20131025165620) do
     t.integer  "quantity"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "member_id"
   end
+
+  create_table "equipment_members", :id => false, :force => true do |t|
+    t.integer "equipment_id"
+    t.integer "member_id"
+  end
+
+  add_index "equipment_members", ["equipment_id", "member_id"], :name => "index_equipment_members_on_equipment_id_and_member_id"
+  add_index "equipment_members", ["member_id"], :name => "index_equipment_members_on_member_id"
 
   create_table "events", :force => true do |t|
     t.datetime "date"
@@ -91,6 +100,7 @@ ActiveRecord::Schema.define(:version => 20131025165620) do
     t.string   "password_hash"
     t.string   "password_salt"
     t.boolean  "is_verified"
+    t.integer  "equipment_id"
   end
 
   create_table "messages", :force => true do |t|
