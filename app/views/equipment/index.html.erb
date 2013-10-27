@@ -1,18 +1,23 @@
-<h1>Listing equipment</h1>
+
+  <h1>Club Equipment</h1>
+
 
 <table>
   <tr>
     <th>Name</th>
     <th>Quantity</th>
-    <th></th>
-    <th></th>
+    <th>Currently With</th>
+    <th>Send Request</th>
     <th></th>
   </tr>
 
+</tr>
 <% @equipment.each do |equipment| %>
   <tr>
     <td><%= equipment.name %></td>
     <td><%= equipment.quantity %></td>
+    <td>asdfasdf</td>
+    <td><a href="#">Request</td>
     <td><%= link_to 'Show', equipment %></td>
     <td><%= link_to 'Edit', edit_equipment_path(equipment) %></td>
     <td><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

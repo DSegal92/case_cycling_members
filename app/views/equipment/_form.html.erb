@@ -19,6 +19,16 @@
     <%= f.label :quantity %><br />
     <%= f.number_field :quantity %>
   </div>
+
+ <% for member in Member.find(:all) %>
+<div>
+  <%= check_box_tag "equipment[member_ids][]", member.id, @equipment.members.include?(member) %>
+  <%= member.name %>
+</div>
+<% end %>
+ 
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
