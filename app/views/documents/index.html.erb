@@ -1,23 +1,31 @@
-<h1>Listing documents</h1>
+<h1>Club Documents</h1>
 
-<table>
-  <tr>
+<div class="grid_12">
+  <table class="documentsTable">
+  <tr class="tableHeader">
     <th>Name</th>
-    <th>Url</th>
-    <th>Description</th>
+    <th>Quantity</th>
+    <th>Currently With</th>
     <th></th>
-    <th></th>
-    <th></th>
+    <% if current_user && (current_user.is_officer || current_user.is_admin) %>
+    <th></th><th></th>
+    <% end %>
   </tr>
 
-<% @documents.each do |document| %>
-  <tr>
+<% @documents.each_with_index do |document, index| %>
+
+<% if index%2 == 0 %>
+  <tr class="even">
+<% else %>
+  <tr class="odd">
+<% end %>
     <td><%= document.name %></td>
     <td><%= document.url %></td>
     <td><%= document.description %></td>
-    <td><%= link_to 'Show', document %></td>
+  <% if current_user && (current_user.is_officer || current_user.is_admin) %>
     <td><%= link_to 'Edit', edit_document_path(document) %></td>
     <td><%= link_to 'Destroy', document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
   </tr>
 <% end %>
 </table>
