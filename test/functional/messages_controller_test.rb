@@ -16,7 +16,7 @@ class MessagesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create message" do
+ test "should create message" do
     assert_difference('Message.count') do
       post :create, message: { contents: @message.contents, respond_to: @message.respond_to, subject: @message.subject }
     end

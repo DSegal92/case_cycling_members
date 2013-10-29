@@ -1,0 +1,15 @@
+Error(s):	test_should_create_message(MessagesControllerTest):
+
+		test_should_destroy_message(MessagesControllerTest):
+
+		test_should_get_edit(MessagesControllerTest):
+
+		test_should_get_index(MessagesControllerTest):
+
+		test_should_get_new(MessagesControllerTest):
+
+		test_should_update_message(MessagesControllerTest):
+
+		test_should_show_message(MessagesControllerTest):
+Explanation: Message has a member respond_to. ActiveRecord also uses a field called respond_to.
+Suggestion: Rename respond_to in Member to something different

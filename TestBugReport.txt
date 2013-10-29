@@ -1,0 +1,29 @@
+Error(s):	test_should_create_member(MembersControllerTest) [C:/Users/Sam/Documents/GitHub/case_cycling_members/test/functional/members_controller_test.rb:20]: "Member.count" didn't change by 1.
+		
+		test_should_get_edit(MembersControllerTest):
+		ActionView::Template::Error: undefined method `is_admin' for nil:NilClass
+
+Explanation:	MembersControllerTest does not appear to be creating @member correctly
+Suggestion:	Find the right way to create a member.
+
+
+Error(s):	test_should_create_equipment(EquipmentControllerTest) [C:/Users/Sam/Documents/GitHub/case_cycling_members/test/functional/equipment_controller_test.rb:20]: "Equipment.count" didn't change by 1.
+		
+		test_should_destroy_equipment(EquipmentControllerTest) [C:/Users/Sam/Documents/GitHub/case_cycling_members/test/functional/equipment_controller_test.rb:43]: "Equipment.count" didn't change by -1.
+Explanation: 	Creating and destroying tables is different than other objects.
+Suggestion:	Figure out how to create/destroy the tables.
+
+
+Error(s):	test_should_get_index(EquipmentControllerTest) [C:/Users/Sam/Documents/GitHub/case_cycling_members/test/functional/equipment_controller_test.rb:10]: Expected response to be a <:success>, but was <302>
+
+		test_should_get_new(EquipmentControllerTest) [C:/Users/Sam/Documents/GitHub/case_cycling_members/test/functional/equipment_controller_test.rb:16]: Expected response to be a <:success>, but was <302>
+
+Explanation:	We are getting an HTTP response code, rather than success.
+Suggestion:	Figure out the right HTTP response code and check for that instead.
+
+
+Error(s):	test_should_show_equipment(EquipmentControllerTest): ActionView::Template::Error: undefined method `name' for nil:NilClass
+
+		test_should_update_equipment(EquipmentControllerTest): ActionController::RoutingError: No route matches {:action=>"show", :controller=>"equipment", :id=>nil}
+Explanation:	The equipment object isn't being created correctly.
+Suggestion:	Figure out how to create the object correctly.
