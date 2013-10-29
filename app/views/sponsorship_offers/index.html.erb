@@ -26,11 +26,12 @@
     </tr>
   <% end %>
   </table>
+    <br />
 </div>
 
 <div>
-  <br>
+
   <% if current_user.can_edit %>
-    <%= link_to 'New Sponsorship offer', new_sponsorship_offer_path %>
+    <%= link_to 'New Sponsorship Offer', new_sponsorship_offer_path %>
   <% end %>
 </div>
