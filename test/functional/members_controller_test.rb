@@ -18,7 +18,7 @@ class MembersControllerTest < ActionController::TestCase
 
   test "should create member" do
     assert_difference('Member.count') do
-      post :create, member: { is_admin: @member.is_admin, is_officer: @member.is_officer, name: @member.name, picture_url: @member.picture_url, standing: @member.standing }
+      post :create, member: { is_admin: @member.is_admin, is_officer: @member.is_officer, name: @member.name, picture_url: @member.picture_url, standing: @member.standing, password: @member.password, password_confirmation: @member.password }
     end
 
     assert_redirected_to member_path(assigns(:member))

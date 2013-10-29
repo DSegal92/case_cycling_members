@@ -41,6 +41,8 @@
 
 <br />
 
+<% if current_user && (current_user.is_officer || current_user.is_admin) %>
 <%= link_to 'New Equipment', new_equipment_path %>
+<% end %>
 
 </div>
