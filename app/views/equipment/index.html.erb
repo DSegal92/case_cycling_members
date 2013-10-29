@@ -1,26 +1,40 @@
 
   <h1>Club Equipment</h1>
 
-
-<table>
-  <tr>
+<div class="grid_12">
+  <table class="equipmentTable">
+  <tr class="tableHeader">
     <th>Name</th>
     <th>Quantity</th>
     <th>Currently With</th>
-    <th>Send Request</th>
     <th></th>
+    <% if current_user && (current_user.is_officer || current_user.is_admin) %>
+    <th></th><th></th>
+    <% end %>
   </tr>
 
 </tr>
-<% @equipment.each do |equipment| %>
-  <tr>
+<% @equipment.each_with_index do |equipment, index| %>
+  <% if index%2 == 0 %>
+  <tr class="even">
+  <% else %>
+  <tr class="odd">
+    <% end %>
     <td><%= equipment.name %></td>
     <td><%= equipment.quantity %></td>
-    <td>asdfasdf</td>
+    <td>
+      <ul id="withList">
+        <% equipment.member_ids.each do |id| %>
+          <li><%= Member.find_by_id(id).name %></li>
+           <% end %>
+    </ul>
+     
+    </td>
     <td><a href="#">Request</td>
-    <td><%= link_to 'Show', equipment %></td>
+    <% if current_user && (current_user.is_officer || current_user.is_admin) %>
     <td><%= link_to 'Edit', edit_equipment_path(equipment) %></td>
     <td><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
@@ -28,3 +42,5 @@
 <br />
 
 <%= link_to 'New Equipment', new_equipment_path %>
+
+</div>

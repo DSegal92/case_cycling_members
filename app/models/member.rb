@@ -32,4 +32,12 @@ class Member < ActiveRecord::Base
   	end
   end
 
+  def can_edit
+    if self.is_officer || self.is_admin
+      true
+    else
+      false
+    end
+  end
+
 end
