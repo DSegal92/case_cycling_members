@@ -1,3 +1,19 @@
 // Place all the styles related to the workouts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.workoutTable {
+	width: 100%;
+	text-align: left;
+}
+
+.workoutTable td {
+	padding: 10px;
+}
+
+.workoutTable tbody tr:nth-child(odd) {
+	background-color: #EEE;
+}
+
+.workoutTable thead {
+	border-bottom: 2px solid black;
+}
