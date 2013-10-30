@@ -31,5 +31,6 @@
 </table>
 
 <br />
-
+<% if current_user && (current_user.is_officer || current_user.is_admin) %>
 <%= link_to 'New Document', new_document_path %>
+<% end %>
