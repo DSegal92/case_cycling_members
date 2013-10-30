@@ -7,13 +7,13 @@ class DocumentsControllerTest < ActionController::TestCase
 
   test "should get index" do
     get :index
-    assert_response :success
+    assert_response 302
     assert_not_nil assigns(:documents)
   end
 
   test "should get new" do
     get :new
-    assert_response :success
+    assert_response 302
   end
 
   test "should create document" do
@@ -31,7 +31,7 @@ class DocumentsControllerTest < ActionController::TestCase
 
   test "should get edit" do
     get :edit, id: @document
-    assert_response :success
+    assert_response 302
   end
 
   test "should update document" do

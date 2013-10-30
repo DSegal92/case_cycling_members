@@ -7,13 +7,13 @@ class SponsorshipOffersControllerTest < ActionController::TestCase
 
   test "should get index" do
     get :index
-    assert_response :success
+    assert_response 302
     assert_not_nil assigns(:sponsorship_offers)
   end
 
   test "should get new" do
     get :new
-    assert_response :success
+    assert_response 302
   end
 
   test "should create sponsorship_offer" do
@@ -26,12 +26,12 @@ class SponsorshipOffersControllerTest < ActionController::TestCase
 
   test "should show sponsorship_offer" do
     get :show, id: @sponsorship_offer
-    assert_response :success
+    assert_response 302
   end
 
   test "should get edit" do
     get :edit, id: @sponsorship_offer
-    assert_response :success
+    assert_response 302
   end
 
   test "should update sponsorship_offer" do
