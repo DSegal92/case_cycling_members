@@ -13,3 +13,8 @@ Error(s):	test_should_create_message(MessagesControllerTest):
 		test_should_show_message(MessagesControllerTest):
 Explanation: Message has a member respond_to. ActiveRecord also uses a field called respond_to.
 Suggestion: Rename respond_to in Member to something different
+
+
+Error(s):	Anyone can destroy members.
+Explanation: You don't need permissions to destroy members.
+Suggestion: Make it so you have to have permissions to destroy members.

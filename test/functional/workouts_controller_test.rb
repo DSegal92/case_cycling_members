@@ -6,10 +6,10 @@ class WorkoutsControllerTest < ActionController::TestCase
     @workout = workouts(:one)
   end
 
-  test "should get index" do
+  test "should get index not current user" do
     get :index
     assert_response 302
-    assert_not_nil assigns(:workouts)
+    assert_nil assigns(:workouts)
   end
 
   test "should get new" do
@@ -17,34 +17,37 @@ class WorkoutsControllerTest < ActionController::TestCase
     assert_response 302
   end
 
-  test "should create workout" do
-    assert_difference('Workout.count') do
+  test "should create workout no permissions" do
+    assert_no_difference('Workout.count') do
       post :create, workout: { date: @workout.date, description: @workout.description }
     end
 
-    assert_redirected_to workout_path(assigns(:workout))
+    assert_redirected_to root_url
   end
 
-  test "should show workout" do
-    get :show, id: @workout
-    assert_response :success
-  end
+#  test "should create workout no permissions" do
+#    assert_no_difference('Workout.count') do
+#      post :create, workout: { date: @workout.date, description: @workout.description }
+#    end
+
+#    assert_redirected_to workout_path(assigns(:workout))
+#  end
 
   test "should get edit" do
     get :edit, id: @workout
     assert_response 302
   end
 
-  test "should update workout" do
+  test "should update workout no permissions" do
     put :update, id: @workout, workout: { date: @workout.date, description: @workout.description }
-    assert_redirected_to workout_path(assigns(:workout))
+    assert_redirected_to root_url
   end
 
-  test "should destroy workout" do
-    assert_difference('Workout.count', -1) do
+  test "should destroy workout no permissions" do
+    assert_no_difference('Workout.count') do
       delete :destroy, id: @workout
     end
 
-    assert_redirected_to workouts_path
+    assert_redirected_to root_url
   end
 end
