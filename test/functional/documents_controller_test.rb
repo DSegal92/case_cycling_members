@@ -2,6 +2,7 @@ require 'test_helper'
 
 class DocumentsControllerTest < ActionController::TestCase
   setup do
+    #TODO verify user has correct permissions to create document
     @document = documents(:one)
   end
 
@@ -24,10 +25,11 @@ class DocumentsControllerTest < ActionController::TestCase
     assert_redirected_to document_path(assigns(:document))
   end
 
-  test "should show document" do
-    get :show, id: @document
-    assert_response :success
-  end
+#Deprecated?
+  #test "should show document" do
+  #  get :show, id: @document
+  #  assert_response :success
+  #end
 
   test "should get edit" do
     get :edit, id: @document

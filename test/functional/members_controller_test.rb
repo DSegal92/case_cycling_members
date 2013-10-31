@@ -2,6 +2,7 @@ require 'test_helper'
 
 class MembersControllerTest < ActionController::TestCase
   setup do
+    #TODO verify user has correct permissions to create memeber
     @member = members(:one)
   end
 

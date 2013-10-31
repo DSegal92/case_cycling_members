@@ -2,6 +2,7 @@ require 'test_helper'
 
 class SponsorshipOffersControllerTest < ActionController::TestCase
   setup do
+    #TODO verify user has correct permissions to create sponsorship offer
     @sponsorship_offer = sponsorship_offers(:one)
   end
 

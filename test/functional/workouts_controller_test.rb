@@ -2,18 +2,19 @@ require 'test_helper'
 
 class WorkoutsControllerTest < ActionController::TestCase
   setup do
+    #TODO verify user has correct permissions to create workout
     @workout = workouts(:one)
   end
 
   test "should get index" do
     get :index
-    assert_response :success
+    assert_response 302
     assert_not_nil assigns(:workouts)
   end
 
   test "should get new" do
     get :new
-    assert_response :success
+    assert_response 302
   end
 
   test "should create workout" do
@@ -31,7 +32,7 @@ class WorkoutsControllerTest < ActionController::TestCase
 
   test "should get edit" do
     get :edit, id: @workout
-    assert_response :success
+    assert_response 302
   end
 
   test "should update workout" do

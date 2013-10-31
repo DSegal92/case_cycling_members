@@ -2,6 +2,7 @@ require 'test_helper'
 
 class EquipmentControllerTest < ActionController::TestCase
   setup do
+    #TODO verify user has correct permissions to create equipment
     @equipment = equipment(:one)
   end
 
