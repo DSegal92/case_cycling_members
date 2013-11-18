@@ -1,29 +1,28 @@
 <h1>Workouts</h1>
 
 <div class="grid_12">
-	<table class="workoutTable">
-		<thead>
+	<table class="table" cellpadding="10">
+	<tr class="thead">
+		<th>Date</th>
+		<th>Description</th>
+		<% if current_user && (current_user.is_admin || current_user.is_officer) %>
+		<th></th>
+		<th></th>
+		<% end %>
+	</tr>
+
+	<tbody>
+	<% @workouts.each do |workout| %>
 		<tr>
-			<th>Date</th>
-			<th>Description</th>
+			<td><%= workout.date %></td>
+			<td><%= workout.description %></td>
 			<% if current_user && (current_user.is_admin || current_user.is_officer) %>
-			<th></th>
-			<th></th>
+			<td><%= link_to 'Edit', edit_workout_path(workout) %></td>
+			<td><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			<% end %>
 		</tr>
-
-		<tbody>
-		<% @workouts.each do |workout| %>
-			<tr>
-				<td><%= workout.date %></td>
-				<td><%= workout.description %></td>
-				<% if current_user && (current_user.is_admin || current_user.is_officer) %>
-				<td><%= link_to 'Edit', edit_workout_path(workout) %></td>
-				<td><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-				<% end %>
-			</tr>
-		<% end %>
-		</tbody>
+	<% end %>
+	</tbody>
 	</table>
 </div>
 

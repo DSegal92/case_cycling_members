@@ -2,8 +2,8 @@
   <h1>Club Equipment</h1>
 
 <div class="grid_12">
-  <table class="equipmentTable">
-  <tr class="tableHeader">
+  <table class="table" cellpadding="10">
+  <tr class="thead">
     <th>Name</th>
     <th>Quantity</th>
     <th>Currently With</th>
@@ -12,14 +12,10 @@
     <th></th><th></th>
     <% end %>
   </tr>
-
 </tr>
+<tbody>
 <% @equipment.each_with_index do |equipment, index| %>
-  <% if index%2 == 0 %>
-  <tr class="even">
-  <% else %>
-  <tr class="odd">
-    <% end %>
+
     <td><%= equipment.name %></td>
     <td><%= equipment.quantity %></td>
     <td>
@@ -37,6 +33,7 @@
     <% end %>
   </tr>
 <% end %>
+</tbody>
 </table>
 
 <br />

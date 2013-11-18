@@ -1,8 +1,8 @@
 <h1>Sponsorship Offers</h1>
 
 <div class="grid_12">
-  <table class="sponsorshipOfferTable" cellpadding="10">
-  <tr class="tableHeader">
+  <table class="table" cellpadding="10">
+  <tr class="thead">
     <th>Name</th>
     <th>Description</th>
     <% if current_user && current_user.can_edit %>
@@ -10,12 +10,8 @@
     <% end %>
   </tr>
 
+  <tbody>
   <% @sponsorship_offers.each_with_index do |sponsorship_offer, index| %>
-    <% if index%2 == 0 %>
-      <tr class="even">
-    <% else %>
-      <tr class="odd">
-    <% end %>
 
       <td><%= sponsorship_offer.name %></td>
       <td><%= sponsorship_offer.description %></td>
@@ -25,6 +21,7 @@
       <% end %>
     </tr>
   <% end %>
+  </tbody>
   </table>
     <br />
 </div>
