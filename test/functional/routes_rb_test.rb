@@ -26,7 +26,7 @@ class RoutesRbTest < ActionController::TestCase
   end
 
   test "should get /members/new" do
-  	assert_generates 'members/new', {controller: 'members', action: 'new'}
+  	assert_generates '/sign_up', {controller: 'members', action: 'new'}
   end
 
   test "should get /sessions from index" do
@@ -38,7 +38,7 @@ class RoutesRbTest < ActionController::TestCase
   end
 
   test "should get /sessions/new" do
-  	assert_generates '/sessions/new', {controller: 'sessions', action: 'new'}
+  	assert_generates '/log_in', {controller: 'sessions', action: 'new'}
   end
 
   test "should get /clothing_items from index" do
