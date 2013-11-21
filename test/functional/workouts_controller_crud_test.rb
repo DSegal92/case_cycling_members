@@ -25,7 +25,7 @@ class WorkoutsControllerCRUDTest < ActionController::TestCase
 	
 	test "edit workout" do
 		# generate expected values randomly
-		@date = DateTime.civil_from_format :utc, 2000 + rand(999), rand(12), rand(29), rand(24), rand(60), rand(60)
+		@date = DateTime.civil_from_format :utc, 2000 + rand(999), rand(12), rand(20), rand(12), rand(59), rand(59)
 		@desc = (0...200).map{ (' '..'~').to_a[rand(94)] }.join
 		
 		# update the existing entry
