@@ -5,7 +5,6 @@ class WorkoutsControllerCRUDTest < ActionController::TestCase
 		@controller = WorkoutsController.new
 		# this is a hacky way to force a log-in
 		@member = members(:admin)
-		# @controller.instance_variable_set(:@current_user, @member) # this is no work
 		session[:member_id] = @member
 		
 		@workout = workouts(:one)
@@ -16,7 +15,7 @@ class WorkoutsControllerCRUDTest < ActionController::TestCase
 			post :create, workout: { date: @workout.date, description: @workout.description }
 		end
 		
-		#assert_response :success
+		# we get redirected to the list page upon success, the root on failure
 		assert_redirected_to workouts_url
 	end
 	
@@ -25,8 +24,7 @@ class WorkoutsControllerCRUDTest < ActionController::TestCase
 			put :update, id: @workout, workout: { date: @workout.date, description: @workout.description }
 		#end
 		
-		# why is this 302 instead of 200? it's a redirect!
-		#assert_response :success
+		# we get redirected to the list page upon success, the root on failure
 		assert_redirected_to workouts_url
 	end
 	
@@ -35,7 +33,7 @@ class WorkoutsControllerCRUDTest < ActionController::TestCase
 			delete :destroy, id: @workout
 		end
 		
-		#assert_response :success
+		# we get redirected to the list page upon success, the root on failure
 		assert_redirected_to workouts_url
 	end
 end

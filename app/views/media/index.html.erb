@@ -1,14 +1,17 @@
-<h1>Listing media</h1>
+<h1>Media</h1>
 
-<table>
-  <tr>
+<div class="grid_12">
+<table class="table" cellpadding="10">
+  <tr class="thead">
     <th>Title</th>
     <th>Url</th>
     <th>Is photo</th>
     <th>Is video</th>
+    <% if current_user && current_user.is_admin %>
     <th></th>
     <th></th>
     <th></th>
+    <% end %>
   </tr>
 
 <% @media.each do |medium| %>
@@ -17,13 +20,20 @@
     <td><%= medium.url %></td>
     <td><%= medium.is_photo %></td>
     <td><%= medium.is_video %></td>
+    <% if current_user && current_user.is_admin %>
     <td><%= link_to 'Show', medium %></td>
     <td><%= link_to 'Edit', edit_medium_path(medium) %></td>
     <td><%= link_to 'Destroy', medium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
+</div>
 
-<%= link_to 'New Medium', new_medium_path %>
+<div>
+<% if current_user && current_user.is_admin %>
+<%= link_to 'New Media', new_medium_path %>
+<% end %>
+</div>

@@ -1,16 +1,19 @@
-<h1>Listing routes</h1>
+<h1>Routes</h1>
 
-<table>
-  <tr>
+<div class="grid_12">
+<table class="table" cellpadding="10">
+  <tr class="thead">
     <th>Name</th>
     <th>Distance</th>
     <th>Elevation</th>
     <th>Url</th>
     <th>Description</th>
     <th>Verified</th>
+    <% if current_user && current_user.is_admin %>
     <th></th>
     <th></th>
     <th></th>
+    <% end %>
   </tr>
 
 <% @routes.each do |route| %>
@@ -21,13 +24,20 @@
     <td><%= route.url %></td>
     <td><%= route.description %></td>
     <td><%= route.verified %></td>
+    <% if current_user && current_user.is_admin %>
     <td><%= link_to 'Show', route %></td>
     <td><%= link_to 'Edit', edit_route_path(route) %></td>
     <td><%= link_to 'Destroy', route, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
+</div>
 
+<div>
+<% if current_user && current_user.is_admin %>
 <%= link_to 'New Route', new_route_path %>
+<% end %>
+</div>
