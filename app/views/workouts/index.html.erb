@@ -1,16 +1,16 @@
 <h1>Workouts</h1>
 
 <div class="grid_12">
-	<table class="workoutTable">
-		<thead>
-		<tr>
-			<th>Date</th>
-			<th>Description</th>
-			<% if current_user && (current_user.is_admin || current_user.is_officer) %>
-			<th></th>
-			<th></th>
-			<% end %>
-		</tr>
+	<table class="table" cellpadding="10">
+	<tr class="thead">
+		<th>Date</th>
+		<th>Description</th>
+		<% if current_user && (current_user.is_admin || current_user.is_officer) %>
+		<th></th>
+		<th></th>
+		<% end %>
+	</tr>
+
 
 		<tbody>
 		<% @workouts.each do |workout| %>
@@ -25,6 +25,7 @@
 		<% end %>
 		</tbody>
 	</table>
+	<br />
 </div>
 
 <% if current_user && (current_user.is_admin || current_user.is_officer) %>

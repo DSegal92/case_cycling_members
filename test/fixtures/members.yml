@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  standing: MyString
-  picture_url: MyString
-  is_officer: 
-  is_admin: 
+admin:
+  name: Testmin
+  standing: Administrator
+  picture_url: nopicture
+  is_officer: true
+  is_admin: true
 
-two:
-  name: MyString
-  standing: MyString
-  picture_url: MyString
-  is_officer: 
-  is_admin: 
+one:
+  name: Memberguy
+  standing: Member
+  picture_url: nopicture
+  is_officer: false
+  is_admin: false

@@ -68,3 +68,20 @@
 	background-color: #428CE7;
 	
 }
+
+.table {
+	width: 100%;
+	text-align: left;
+}
+
+.td {
+	padding: 10px;
+}
+
+tbody tr:nth-child(odd) {
+	background-color: #EEE;
+}
+
+.thead {
+	border-bottom: 2px solid black;
+}

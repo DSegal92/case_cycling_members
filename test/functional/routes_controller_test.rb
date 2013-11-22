@@ -46,4 +46,5 @@ class RoutesControllerTest < ActionController::TestCase
 
     assert_redirected_to routes_path
   end
+
 end
