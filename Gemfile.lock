@@ -55,6 +55,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25)
     multi_json (1.8.2)
+    pg (0.12.2)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -123,6 +124,7 @@ DEPENDENCIES
   bcrypt-ruby (= 3.1.1.rc1)
   coffee-rails (~> 3.2.1)
   jquery-rails
+  pg
   rails (= 3.2.12)
   rspec
   sass-rails (~> 3.2.3)
