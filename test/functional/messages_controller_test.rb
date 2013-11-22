@@ -16,9 +16,9 @@ class MessagesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create message" do
+ test "should create message" do
     assert_difference('Message.count') do
-      post :create, message: { contents: @message.contents, respond_to: @message.respond_to, subject: @message.subject }
+      post :create, message: { contents: @message.contents, respond_to_email: @message.respond_to_email, subject: @message.subject }
     end
 
     assert_redirected_to message_path(assigns(:message))
@@ -35,7 +35,7 @@ class MessagesControllerTest < ActionController::TestCase
   end
 
   test "should update message" do
-    put :update, id: @message, message: { contents: @message.contents, respond_to: @message.respond_to, subject: @message.subject }
+    put :update, id: @message, message: { contents: @message.contents, respond_to_email: @message.respond_to_email, subject: @message.subject }
     assert_redirected_to message_path(assigns(:message))
   end
 

@@ -1,8 +1,15 @@
 .navbar ul{
 	display: table;
 	margin: 0 auto;
-	width: 60%;
+	width: 65%;
 	list-style: none;
+}
+
+.unbulleted{
+	list-style: decimal;
+	margin: 10px auto;
+	
+		
 }
 
 .top_item{
@@ -12,13 +19,13 @@
 }
 
 .user_info{
-	width: 100%;
-	z-index: 100;
 	padding-top: 20px;
 	background-color: black;
 	color: white;
 	text-align: right;
+	padding-right: 40px;
 }
+
 
 .navbar a{
 	font-family: 'Titillium Web', sans-serif;
@@ -60,4 +67,21 @@
 .dropdown ul>li:hover{
 	background-color: #428CE7;
 	
+}
+
+.table {
+	width: 100%;
+	text-align: left;
+}
+
+.td {
+	padding: 10px;
+}
+
+tbody tr:nth-child(odd) {
+	background-color: #EEE;
+}
+
+.thead {
+	border-bottom: 2px solid black;
 }

@@ -13,7 +13,7 @@
 <% @messages.each do |message| %>
   <tr>
     <td><%= message.subject %></td>
-    <td><%= message.respond_to %></td>
+    <td><%= message.respond_to_email %></td>
     <td><%= message.contents %></td>
     <td><%= link_to 'Show', message %></td>
     <td><%= link_to 'Edit', edit_message_path(message) %></td>

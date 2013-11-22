@@ -1,13 +1,16 @@
-<h1>Listing rides</h1>
+<h1>Rides</h1>
 
-<table>
-  <tr>
+<div class="grid_12">
+<table class="table" cellpadding="10">
+  <tr class="thead">
     <th>Name</th>
     <th>Time</th>
     <th>Location</th>
+    <% if current_user && current_user.is_admin %>
     <th></th>
     <th></th>
     <th></th>
+    <% end %>
   </tr>
 
 <% @rides.each do |ride| %>
@@ -15,13 +18,20 @@
     <td><%= ride.name %></td>
     <td><%= ride.time %></td>
     <td><%= ride.location %></td>
+    <% if current_user && current_user.is_admin %>
     <td><%= link_to 'Show', ride %></td>
     <td><%= link_to 'Edit', edit_ride_path(ride) %></td>
     <td><%= link_to 'Destroy', ride, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
+</div>
 
+<div>
+<% if current_user && current_user.is_admin %>
 <%= link_to 'New Ride', new_ride_path %>
+<% end %>
+</div>

@@ -10,15 +10,28 @@
       </ul>
     </div>
   <% end %>
-
+  
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+<br />
   <div class="field">
     <%= f.label :quantity %><br />
     <%= f.number_field :quantity %>
   </div>
+
+<br />
+<%= f.label :Location %><br />
+ <% for member in Member.find(:all) %>
+  <div>
+  <%= check_box_tag "equipment[member_ids][]", member.id, @equipment.members.include?(member) %>
+  <%= member.name %>
+</div>
+<% end %>
+ 
+
+<br />
   <div class="actions">
     <%= f.submit %>
   </div>

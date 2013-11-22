@@ -2,10 +2,10 @@
 
 one:
   subject: MyString
-  respond_to: MyString
+  respond_to_email: MyString
   contents: MyText
 
 two:
   subject: MyString
-  respond_to: MyString
+  respond_to_email: MyString
   contents: MyText

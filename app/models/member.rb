@@ -1,9 +1,9 @@
 class Member < ActiveRecord::Base
-  attr_accessible :is_admin, :is_officer, :name, :picture_url, :standing, :email, :password, :password_confirmation, :is_verified
+  attr_accessible :is_admin, :is_officer, :name, :picture_url, :standing, :email, :password, :password_confirmation, :is_verified, :equipment_id
   attr_accessor :password
   before_save :encrypt_password
 
-  has_many :equipment
+  has_and_belongs_to_many :equipment
   has_many :positions
 
   validates_confirmation_of :password
@@ -30,6 +30,14 @@ class Member < ActiveRecord::Base
   		self.password_salt = BCrypt::Engine.generate_salt
   		self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
   	end
+  end
+
+  def can_edit
+    if self.is_officer || self.is_admin
+      true
+    else
+      false
+    end
   end
 
 end
