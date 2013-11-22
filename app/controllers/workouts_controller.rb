@@ -23,7 +23,7 @@ class WorkoutsController < ApplicationController
       redirect_to root_url
     else
       @workout = Workout.new
-
+      @exercises = Exercise.all
       respond_to do |format|
         format.html # new.html.erb
         format.json { render json: @workout }
@@ -38,6 +38,7 @@ class WorkoutsController < ApplicationController
     elsif (current_user && !(current_user.can_edit))
       redirect_to root_url
     else
+      @exercises = Exercise.all
       @workout = Workout.find(params[:id])
     end
   end

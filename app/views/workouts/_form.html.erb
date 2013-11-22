@@ -1,4 +1,48 @@
-<%= form_for(@workout) do |f| %>
+<script>
+  $(document).ready(function() {
+    var counter = 1;
+    var testString = "";  
+    updateBox();
+
+    function updateBox(){
+        testString = "";  
+        $( ".step > select" ).each(function( index ) {
+          testString = testString + $(this).val() + "\n";
+          $("#workout_description").val(testString);
+      })
+    }
+
+    $(".workout").change(function(){      
+      updateBox();
+    })
+
+    $('#add').click(function(e){     
+        e.preventDefault();
+        counter++;
+        $(".step").last().clone().appendTo(".workout");
+        $(".step").last().attr("id", counter); 
+       updateBox();
+      })
+
+    $("#clear").click(function(e){
+      e.preventDefault();
+
+      $(".step").each(function(){
+        if ($(".step").size() > 1){
+           $(this).remove();
+        }
+       
+      })
+       var testString = "";  
+      $("#workout_description").val(testString);
+      updateBox();
+    })
+  });
+</script>
+
+
+  <%= form_for(@workout) do |f| %>
+
   <% if @workout.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@workout.errors.count, "error") %> prohibited this workout from being saved:</h2>
@@ -15,11 +59,30 @@
     <%= f.label :date %><br />
     <%= f.datetime_select :date %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br />
+   <div class="grid_6">
+      <br />
+  <ul class="workout">
+    <li class="step unbulleted"  id="1"><select >
+  <% @exercises.each do |exercise| %>
+  <option value="<%=exercise.name%>"><%=exercise.name %></option>
+  <% end %>
+</select></li>
+  </ul>
+
+<a href="#" id="add">Add Exercise</a>
+  </div>
+
+<div class="grid_6">
+    <div class="field">
+
+    <%= f.label :description %> <a href="#" id="clear">Clear Workout</a><br />
     <%= f.text_area :description %>
   </div>
+
+</div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
