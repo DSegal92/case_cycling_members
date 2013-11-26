@@ -19,11 +19,30 @@
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
+
+  <div class="field">
+    <%  f.label :standing %><br />
+    <%= f.select :standing, options_for_select([["Select One", ""], "Freshman", "Sophomore", "Junior", "Senior", "Graduate Student", "Postgraduate Student", "Medical Student", "Faculty Member"])%>
+  </div>
+
+    <div class="field">
+    <%= f.label :picture_url %><br />
+    <%= f.text_field :picture_url %>
+  </div>
 	 <div class="field">
     <%= f.label :is_verified %><br />
     <%= f.check_box :is_verified %>
   </div>
-  
+
+
+<%= f.label :position %><br />
+ <% for position in Position.find(:all) %>
+  <div>
+  <%= check_box_tag "member[position_ids][]", position.id, @member.positions.include?(position) %>
+  <%= position.title %>
+</div>
+<% end %>
+
   <% if current_user.is_admin %>
   <div class="field">
     <%= f.label :is_officer %><br />
