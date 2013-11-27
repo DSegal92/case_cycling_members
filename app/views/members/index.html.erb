@@ -9,6 +9,7 @@
     <th>Officer</th>
     <th>Verified</th>
     <th>Admin</th>
+    <th>Positions</th>
     <% if current_user && current_user.is_admin %>
     <th></th>
     <th></th>
@@ -25,6 +26,9 @@
     <td><%= member.is_officer %></td>
     <td><%= member.is_verified %></td>
     <td><%= member.is_admin %></td>
+    <td>
+<%= member.positions.collect(&:title).join(",") %>
+</td>
     <% if current_user && current_user.is_admin %>
     <td><%= link_to 'Show', member %></td>
     <td><%= link_to 'Edit', edit_member_path(member) %></td>
