@@ -2,6 +2,9 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
+    if !(current_user)
+      redirect_to root_url
+    else
     @members = Member.all
 
     respond_to do |format|
@@ -9,10 +12,14 @@ class MembersController < ApplicationController
       format.json { render json: @members }
     end
   end
+end
 
   # GET /members/1
   # GET /members/1.json
   def show
+    if !(current_user)
+      redirect_to root_url
+    else
     @member = Member.find(params[:id])
 
     respond_to do |format|
@@ -20,6 +27,7 @@ class MembersController < ApplicationController
       format.json { render json: @member }
     end
   end
+end
 
   # GET /members/new
   # GET /members/new.json
