@@ -157,7 +157,6 @@ ActiveRecord::Schema.define(:version => 20131202043456) do
     t.string   "url"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "tier"
   end
 
   create_table "sponsorship_offers", :force => true do |t|
