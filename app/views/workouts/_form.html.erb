@@ -6,8 +6,9 @@
 
     function updateBox(){
         testString = "";  
-        $( ".step > select" ).each(function( index ) {
-          testString = testString + $(this).val() + "\n";
+        $( ".step" ).each(function( index ) {
+           testString = testString + $(this).find('select:nth-child(1)').val() + " -  " + $(this).find('select:nth-child(2)').val() + "mins " + "(" + $(this).find('select:nth-child(3)').val() + ") x" + $(this).find('select:nth-child(4)').val() + " \n" 
+          // testString = testString + $(this).val() + "";
           $("#workout_description").val(testString);
       })
     }
@@ -61,12 +62,46 @@
   </div>
    <div class="grid_6">
       <br />
+      Exercise Name - Duration (min) - Intensity - Repetitions
   <ul class="workout">
     <li class="step unbulleted"  id="1"><select >
   <% @exercises.each do |exercise| %>
   <option value="<%=exercise.name%>"><%=exercise.name %></option>
   <% end %>
-</select></li>
+</select>
+  <select>
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+    <option value="20">20</option>
+    <option value="15">25</option>
+    <option value="20">30</option>
+  </select>
+  <select>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+  </select>
+  <select>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+  </select>
+  </li>
   </ul>
 
 <a href="#" id="add">Add Exercise</a>

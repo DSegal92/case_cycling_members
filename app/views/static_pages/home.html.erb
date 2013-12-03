@@ -29,10 +29,13 @@
 	</div>
 	<div class="grid_4">
 		<span class="title">Next Workout</span>
+		<% unless @workout.nil? %>
+		
 		<div class="workout">
 			<%= @workout.date.strftime("%F") %>
 			<%= simple_format(@workout.description) %>
 		</div>
+		<% end %>
 	</div>
 	<div class="grid_4">
 		<span class="title">Important Documents</span>
