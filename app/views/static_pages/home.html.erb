@@ -14,6 +14,35 @@
 <% end %>
 
 <% if current_user && current_user.is_verified %>
-	Page Content
+	<div class="grid_8">
+	<% @blogs.each do |blog| %>
+	<span class="title">
+		<%= blog.title.upcase%>
+	</span>
+	
+	<br />
+	<div class="content">
+		<%= simple_format(blog.contents) %>
+	</div>
+	
+	<% end %>
+	</div>
+	<div class="grid_4">
+		<span class="title">Next Workout</span>
+		<div class="workout">
+			<%= @workout.date.strftime("%F") %>
+			<%= simple_format(@workout.description) %>
+		</div>
+	</div>
+	<div class="grid_4">
+		<span class="title">Important Documents</span>
+		<div class="workout">
+			<ul>
+			<% @documents.each do |d| %>
+				<li><a href="http://<%= d.url %>"><%= d.name %></a></li>
+			<% end %>
+		</ul>
+		</div>
+	</div>
 <% end %>
 
