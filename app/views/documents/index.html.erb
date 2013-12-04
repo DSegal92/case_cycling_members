@@ -3,9 +3,9 @@
 <div class="grid_12">
   <table class="table" cellpadding="10">
   <tr class="thead">
-    <th>Name</th>
-    <th>Quantity</th>
-    <th>Currently With</th>
+    <th>Document</th>
+    <th></th>
+    <th>Description</th>
     <th></th>
     <% if current_user && (current_user.is_officer || current_user.is_admin) %>
     <th></th><th></th>
@@ -15,7 +15,9 @@
 <tbody>
 <% @documents.each_with_index do |document, index| %>
     <td><%= document.name %></td>
-    <td><%= document.url %></td>
+    <td>
+		<a href="<%= document.url %>" title="<%= document.name %>">Open</a>
+	</td>
     <td><%= document.description %></td>
   <% if current_user && (current_user.is_officer || current_user.is_admin) %>
     <td><%= link_to 'Edit', edit_document_path(document) %></td>
