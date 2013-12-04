@@ -2,6 +2,9 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
+    if !(current_user)
+      redirect_to root_url
+    else
     @members = Member.all
 
     respond_to do |format|
@@ -9,10 +12,14 @@ class MembersController < ApplicationController
       format.json { render json: @members }
     end
   end
+end
 
   # GET /members/1
   # GET /members/1.json
   def show
+    if !(current_user)
+      redirect_to root_url
+    else
     @member = Member.find(params[:id])
 
     respond_to do |format|
@@ -20,6 +27,7 @@ class MembersController < ApplicationController
       format.json { render json: @member }
     end
   end
+end
 
   # GET /members/new
   # GET /members/new.json
@@ -44,7 +52,7 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
-        format.html { redirect_to root_url, notice: 'Member was successfully created.' }
+        format.html { redirect_to members_url, notice: 'Member was successfully created.' }
         format.json { render json: @member, status: :created, location: @member }
       else
         format.html { render action: "new" }

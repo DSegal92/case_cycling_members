@@ -11,19 +11,31 @@
     </div>
   <% end %>
 
+<div class="grid_12">
   <div class="field">
     <%= f.label :date %><br />
     <%= f.datetime_select :date %>
   </div>
+</div>
+
+<div class="grid_6">
   <div class="field">
+  	<br />
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+</div>
+
+<div class="grid_6">
   <div class="field">
+	<br />
     <%= f.label :location %><br />
     <%= f.text_field :location %>
   </div>
-  <div class="actions">
+</div>
+
+  <div class="grid_12 actions">
+  	<br />
     <%= f.submit %>
   </div>
 <% end %>

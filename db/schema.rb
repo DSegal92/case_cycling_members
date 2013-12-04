@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131202043456) do
+ActiveRecord::Schema.define(:version => 20131203005051) do
 
   create_table "blogs", :force => true do |t|
     t.string   "title"
     t.text     "contents"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "internal"
   end
 
   create_table "carousels", :force => true do |t|
@@ -36,10 +37,8 @@ ActiveRecord::Schema.define(:version => 20131202043456) do
   create_table "coaches", :force => true do |t|
     t.string   "name"
     t.text     "bio"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.string   "picture_url"
-    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "documents", :force => true do |t|
@@ -141,8 +140,8 @@ ActiveRecord::Schema.define(:version => 20131202043456) do
 
   create_table "routes", :force => true do |t|
     t.string   "name"
-    t.string   "distance"
-    t.string   "elevation"
+    t.integer  "distance"
+    t.integer  "elevation"
     t.string   "url"
     t.text     "description"
     t.boolean  "verified"
@@ -157,6 +156,7 @@ ActiveRecord::Schema.define(:version => 20131202043456) do
     t.string   "url"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "tier"
   end
 
   create_table "sponsorship_offers", :force => true do |t|

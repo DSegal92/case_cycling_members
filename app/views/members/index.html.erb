@@ -23,7 +23,7 @@
     <td><%= member.name %></td>
     <td><%= member.standing %></td>
     <td>
-    	<% if member.picture_url != nil %>
+    	<% if (!member.picture_url.nil?) && (!member.picture_url.empty?) %>
     	<a href="<%= member.picture_url %>" title="Picture URL">Open</a>
     	<% end %>
     </td>

@@ -33,13 +33,16 @@
   </div>
 </div>
 
+  <% if current_user %>
+  <% if current_user.is_admin %>
 <div class="grid_6">
   <div class="field">
     <%= f.check_box :is_verified %>
     <%= f.label :is_verified %>
   </div>
+
   <br />
-  <% if current_user.is_admin %>
+ 
     <div class="field">
       <%= f.check_box :is_officer %>
       <%= f.label :is_officer %>
@@ -49,7 +52,6 @@
       <%= f.check_box :is_admin %>
       <%= f.label :is_admin %>
     </div>
-  <% end %>
   
   <br />
   <%= f.label :position %><br />
@@ -60,9 +62,12 @@
     </div>
   <% end %>
 </div>
+  <% end %>
+<% end %>
 
   <div class="grid_12 actions">
     <br />
     <%= f.submit %>
   </div>
 <% end %>
+
