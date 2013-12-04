@@ -6,7 +6,7 @@
     <th>Name</th>
     <th>Distance</th>
     <th>Elevation</th>
-    <th>Url</th>
+    <th>URL</th>
     <th>Description</th>
     <th>Verified</th>
     <% if current_user && current_user.is_admin %>
@@ -21,9 +21,15 @@
     <td><%= route.name %></td>
     <td><%= route.distance %></td>
     <td><%= route.elevation %></td>
-    <td><%= route.url %></td>
+    <td>
+    	<a href="<%= route.url %>" title="<%= route.name %>">Open</a>
+    </td>
     <td><%= route.description %></td>
-    <td><%= route.verified %></td>
+    <td>
+    	<% if route.verified %>
+    	✓
+    	<% end %>
+    </td>
     <% if current_user && current_user.is_admin %>
     <td><%= link_to 'Show', route %></td>
     <td><%= link_to 'Edit', edit_route_path(route) %></td>
