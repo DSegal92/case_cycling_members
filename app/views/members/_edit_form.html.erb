@@ -11,52 +11,58 @@
     </div>
   <% end %>
 
+<div class="grid_6">
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  <br />
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
-
+  <br />
   <div class="field">
-    <%  f.label :standing %><br />
+    <%= f.label :standing %><br />
     <%= f.select :standing, options_for_select([["Select One", ""], "Freshman", "Sophomore", "Junior", "Senior", "Graduate Student", "Postgraduate Student", "Medical Student", "Faculty Member"])%>
   </div>
-
-    <div class="field">
+  <br />
+  <div class="field">
     <%= f.label :picture_url %><br />
     <%= f.text_field :picture_url %>
   </div>
-	 <div class="field">
-    <%= f.label :is_verified %><br />
-    <%= f.check_box :is_verified %>
-  </div>
-
-
-<%= f.label :position %><br />
- <% for position in Position.find(:all) %>
-  <div>
-  <%= check_box_tag "member[position_ids][]", position.id, @member.positions.include?(position) %>
-  <%= position.title %>
 </div>
-<% end %>
 
-  <% if current_user.is_admin %>
+<div class="grid_6">
   <div class="field">
-    <%= f.label :is_officer %><br />
-    <%= f.check_box :is_officer %>
+    <%= f.check_box :is_verified %>
+    <%= f.label :is_verified %>
   </div>
+  <br />
+  <% if current_user.is_admin %>
+    <div class="field">
+      <%= f.check_box :is_officer %>
+      <%= f.label :is_officer %>
+    </div>
+    <br />
+    <div class="field">
+      <%= f.check_box :is_admin %>
+      <%= f.label :is_admin %>
+    </div>
+  <% end %>
+  
+  <br />
+  <%= f.label :position %><br />
+  <% for position in Position.find(:all) %>
+    <div>
+      <%= check_box_tag "member[position_ids][]", position.id, @member.positions.include?(position) %>
+      <%= position.title %>
+    </div>
+  <% end %>
+</div>
 
-   <div class="field">
-    <%= f.label :is_admin %><br />
-    <%= f.check_box :is_admin %>
-  </div>
-	<% end %>
-
-
-  <div class="actions">
+  <div class="grid_12 actions">
+    <br />
     <%= f.submit %>
   </div>
 <% end %>

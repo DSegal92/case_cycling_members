@@ -22,10 +22,26 @@
   <tr>
     <td><%= member.name %></td>
     <td><%= member.standing %></td>
-    <td><%= member.picture_url %></td>
-    <td><%= member.is_officer %></td>
-    <td><%= member.is_verified %></td>
-    <td><%= member.is_admin %></td>
+    <td>
+    	<% if member.picture_url != nil %>
+    	<a href="<%= member.picture_url %>" title="Picture URL">Open</a>
+    	<% end %>
+    </td>
+    <td>
+    	<% if member.is_officer %>
+    	✓
+    	<% end %>
+    </td>
+    <td>
+    	<% if member.is_verified %>
+    	✓
+    	<% end %>
+    </td>
+    <td>
+    	<% if member.is_admin %>
+    	✓
+    	<% end %>
+    </td>
     <td>
 <%= member.positions.collect(&:title).join(",") %>
 </td>

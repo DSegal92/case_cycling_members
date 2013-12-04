@@ -11,15 +11,19 @@
     </div>
   <% end %>
 
+<div class="grid_12">
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
     <%= f.label :contents %><br />
-    <%= f.text_area :contents %>
+    <%= f.text_area :contents, :class => "blog_textarea" %>
   </div>
-  <div class="actions">
+</div>
+
+  <div class="grid_12 actions">
+    <br />
     <%= f.submit %>
   </div>
 <% end %>

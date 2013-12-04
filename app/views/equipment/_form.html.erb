@@ -11,6 +11,7 @@
     </div>
   <% end %>
   
+<div class="grid_6">
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -18,10 +19,11 @@
 <br />
   <div class="field">
     <%= f.label :quantity %><br />
-    <%= f.number_field :quantity %>
+    <%= f.number_field :quantity, :min => 0 %>
   </div>
+</div>
 
-<br />
+<div class="grid_6">
 <%= f.label :Location %><br />
  <% for member in Member.find(:all) %>
   <div>
@@ -29,10 +31,10 @@
   <%= member.name %>
 </div>
 <% end %>
- 
+</div>
 
-<br />
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="grid_12 actions">
+  <br />
+  <%= f.submit %>
+</div>
 <% end %>
