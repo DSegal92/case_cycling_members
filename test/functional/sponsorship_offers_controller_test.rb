@@ -25,14 +25,6 @@ class SponsorshipOffersControllerTest < ActionController::TestCase
     assert_redirected_to root_url
   end
 
-  #test "should create sponsorship_offer no permissions" do
-    #assert_no_difference('SponsorshipOffer.count') do
-   #   post :create, sponsorship_offer: { description: @sponsorship_offer.description, name: @sponsorship_offer.name }
-  #  end
-
- #   assert_redirected_to sponsorship_offer_path(assigns(:sponsorship_offer))
-#  end
-
   test "should get edit" do
     get :edit, id: @sponsorship_offer
     assert_response 302

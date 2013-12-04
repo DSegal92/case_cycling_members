@@ -25,14 +25,6 @@ class WorkoutsControllerTest < ActionController::TestCase
     assert_redirected_to root_url
   end
 
-#  test "should create workout no permissions" do
-#    assert_no_difference('Workout.count') do
-#      post :create, workout: { date: @workout.date, description: @workout.description }
-#    end
-
-#    assert_redirected_to workout_path(assigns(:workout))
-#  end
-
   test "should get edit" do
     get :edit, id: @workout
     assert_response 302
