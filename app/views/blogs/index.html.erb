@@ -15,7 +15,7 @@
 <% @blogs.each do |blog| %>
   <tr>
     <td><%= blog.title %></td>
-    <td><%= blog.contents %></td>
+    <td><%= blog.contents.truncate(150) %></td>
     <% if current_user && current_user.is_admin %>
     <td><%= link_to 'Show', blog %></td>
     <td><%= link_to 'Edit', edit_blog_path(blog) %></td>

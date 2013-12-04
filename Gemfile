@@ -6,7 +6,6 @@ gem 'rspec'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-
 gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 
 gem 'simplecov', :require => false, :group => 'test'
