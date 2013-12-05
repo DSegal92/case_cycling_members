@@ -7,8 +7,8 @@ class MembersControllerTest < ActionController::TestCase
 
   test "should get index" do
     get :index
-    assert_response :success
-    assert_not_nil assigns(:members)
+    assert_response 302
+    assert_nil assigns(:member)
   end
 
   test "should get new" do
@@ -26,13 +26,13 @@ class MembersControllerTest < ActionController::TestCase
 
   test "should show member" do
     get :show, id: @member
-    assert_response :success
+    assert_response 302
   end
 
-#  test "should get edit" do
-#    get :edit, id: @member
-#    assert_response :success
-#  end
+  test "should get edit" do
+    get :edit, id: @member
+    assert_response :success
+  end
 
   test "should update member" do
     put :update, id: @member, member: { is_admin: @member.is_admin, is_officer: @member.is_officer, name: @member.name, picture_url: @member.picture_url, standing: @member.standing }

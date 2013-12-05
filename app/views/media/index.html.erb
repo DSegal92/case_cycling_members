@@ -4,9 +4,8 @@
 <table class="table" cellpadding="10">
   <tr class="thead">
     <th>Title</th>
-    <th>Url</th>
-    <th>Is photo</th>
-    <th>Is video</th>
+    <th>URL</th>
+    <th>Type</th>
     <% if current_user && current_user.is_admin %>
     <th></th>
     <th></th>
@@ -17,9 +16,18 @@
 <% @media.each do |medium| %>
   <tr>
     <td><%= medium.title %></td>
-    <td><%= medium.url %></td>
-    <td><%= medium.is_photo %></td>
-    <td><%= medium.is_video %></td>
+    <td>
+    	<a href="<%= medium.url %>" title="<%= medium.title %>">Open</a>
+    </td>
+    <td>
+    	<% if medium.is_photo %>
+    	Photo
+    	<% elsif medium.is_video %>
+    	Video
+    	<% else %>
+    	Other
+    	<% end %>
+    </td>
     <% if current_user && current_user.is_admin %>
     <td><%= link_to 'Show', medium %></td>
     <td><%= link_to 'Edit', edit_medium_path(medium) %></td>

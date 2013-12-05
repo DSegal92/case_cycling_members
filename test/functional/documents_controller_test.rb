@@ -25,14 +25,6 @@ class DocumentsControllerTest < ActionController::TestCase
     assert_redirected_to root_url
   end
 
-  #test "should create document" do
-    #assert_difference('Document.count') do
-   #   post :create, document: { description: @document.description, name: @document.name, url: @document.url }
-  #  end
-
- #   assert_redirected_to document_path(assigns(:document))
-#  end
-
   test "should get edit" do
     get :edit, id: @document
     assert_response 302
@@ -50,12 +42,4 @@ class DocumentsControllerTest < ActionController::TestCase
 
     assert_redirected_to root_url
   end
-
-#  test "should destroy document" do
- #   assert_difference('Document.count', -1) do
-  #    delete :destroy, id: @document
-   # end
-
-    #assert_redirected_to documents_path
-  #end
 end

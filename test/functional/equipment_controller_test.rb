@@ -25,14 +25,6 @@ class EquipmentControllerTest < ActionController::TestCase
     assert_redirected_to root_url
   end
 
-   # test "should create equipment" do
-    #assert_difference('Equipment.count') do
-     # post :create, equipment: { name: @equipment.name, quantity: @equipment.quantity }
-    #end
-
-    #assert_redirected_to equipment_path(assigns(:equipment))
-  #end
-
   test "should get edit" do
     get :edit, id: @equipment
     assert_response 302

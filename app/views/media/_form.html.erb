@@ -11,23 +11,30 @@
     </div>
   <% end %>
 
+<div class="grid_6">
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
+  <br />
+  <div class="field">
+  	<%= f.check_box :is_photo %>
+    <%= f.label :is_photo %>
+  </div>
+  <div class="field">
+  	<%= f.check_box :is_video %>
+    <%= f.label :is_video %>
+  </div>
+</div>
+<div class="grid_6">
   <div class="field">
     <%= f.label :url %><br />
     <%= f.text_field :url %>
   </div>
-  <div class="field">
-    <%= f.label :is_photo %><br />
-    <%= f.check_box :is_photo %>
-  </div>
-  <div class="field">
-    <%= f.label :is_video %><br />
-    <%= f.check_box :is_video %>
-  </div>
-  <div class="actions">
+</div>
+
+  <div class="grid_12 actions">
+  	<br />
     <%= f.submit %>
   </div>
 <% end %>

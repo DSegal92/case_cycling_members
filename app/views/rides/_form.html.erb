@@ -11,19 +11,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
+  <div class="grid_12 field">
     <%= f.label :time %><br />
     <%= f.time_select :time %>
   </div>
-  <div class="field">
+  
+  <div class="grid_6 field">
+  	<br />
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="grid_6 field">
+  	<br />
     <%= f.label :location %><br />
     <%= f.text_field :location %>
   </div>
-  <div class="actions">
+  
+  <div class="grid_12 actions">
+  	<br />
     <%= f.submit %>
   </div>
 <% end %>

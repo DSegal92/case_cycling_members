@@ -13,32 +13,32 @@ class ClothingItemsControllerCRUDTest < ActionController::TestCase
 		@clothes = clothing_items(:one)
 	end
 
-#	test "create clothing item" do
-#		# make sure the object was created
-#		assert_difference('ClothingItem.count', 1, 'Clothing item should be added') do
-#			post :create, clothing_item: { name: @clothes.name, picture_url: @clothes.picture_url }
-#		end
-#		
-#		# we get redirected to the list page upon success, the root on failure
-#		assert_redirected_to clothing_items_url
-#	end
+	test "create clothing item" do
+		# make sure the object was created
+		assert_difference('ClothingItem.count', 1, 'Clothing item should be added') do
+			post :create, clothing_item: { name: @clothes.name, picture_url: @clothes.picture_url }
+		end
+		
+		# we get redirected to the list page upon success, the root on failure
+		assert_redirected_to clothing_items_url(assigns(:clothing_item)).sub("clothing_items.","clothing_items/")
+	end
 	
-#	test "edit clothing item" do
-#		# generate expected values randomly
-#		@name = (0...50).map{ (' '..'~').to_a[rand(94)] }.join
-#		@url = (0...200).map{ (' '..'~').to_a[rand(94)] }.join
-#		
-#		# update the existing entry
-#		put :update, id: @clothes, clothing_item: { name: @name, picture_url: @url }
-#		
-#		# we get redirected to the list page upon success, the root on failure
-#		assert_redirected_to clothing_items_url
-#		
-#		# make sure everything updated as expected
-#		@test_obj = ClothingItem.find(@clothes)
-#		assert_equal(@name, @test_obj.name, "Names should match")
-#		assert_equal(@url, @test_obj.picture_url, "URLs should match")
-#	end
+	test "edit clothing item" do
+		# generate expected values randomly
+		@name = (0...50).map{ (' '..'~').to_a[rand(94)] }.join
+		@url = (0...200).map{ (' '..'~').to_a[rand(94)] }.join
+		
+		# update the existing entry
+		put :update, id: @clothes, clothing_item: { name: @name, picture_url: @url }
+		
+		# we get redirected to the list page upon success, the root on failure
+		assert_redirected_to clothing_items_url(assigns(:clothing_item)).sub("clothing_items.","clothing_items/")
+		
+		# make sure everything updated as expected
+		@test_obj = ClothingItem.find(@clothes)
+		assert_equal(@name, @test_obj.name, "Names should match")
+		assert_equal(@url, @test_obj.picture_url, "URLs should match")
+	end
 	
 	test "destroy clothing item" do
 		# make sure the object was removed
