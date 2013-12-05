@@ -11,6 +11,7 @@ gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 gem 'simplecov', :require => false, :group => 'test'
 
 group :development do
+	gem 'taps'
 	gem 'sqlite3'
 end
 
