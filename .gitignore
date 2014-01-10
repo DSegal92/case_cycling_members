@@ -16,3 +16,5 @@
 
 # Ignore the coverage files
 /coverage/
+
+/config/initializers/setup_mail.rb
