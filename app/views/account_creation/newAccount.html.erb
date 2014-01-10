@@ -6,12 +6,16 @@
 
 <p>To confirm your account, please follow this link: <a href="http://members.casecycling.com/confirm?email=<%=@email%>&confirmation=<%=@creation_hex%>">http://members.casecycling.com/confirm?email=<%=@email%>&confirmation=<%=@creation_hex%></a></p>
 
-<!-- <p>If you have any problems, please contact:</p>
+<p>If you have any problems, please contact:</p>
 <ul>
+	<% unless @webmaster.nil? %>
 	<li>Webmaster: <%=@webmaster%></li>
+	<% end %>
+	<% unless @secretary.nil? %>
 	<li>Secretary: <%=@secretary%></li>
+	<% end %>
 </ul>
- -->
+
 <p>Thank you again for registering, I hope that you find the site useful</p>
 
-<p>Daniel Segal, Webmaster Case Cycling 2014</p>
+<p>Daniel Segal <br />Webmaster Case Cycling 2014</p>

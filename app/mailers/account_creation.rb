@@ -5,7 +5,7 @@ class AccountCreation < ActionMailer::Base
   	@name = name
   	@email = email
   	@creation_hex = creation_hex
-  	mail(:to => "dls148@case.edu", 
+  	mail(:to => email, 
   		:subject => "Your Case Cycling Account Needs to Be Confirmed", 
   		:reply_to => "noreply@casecycling.com")
   end
