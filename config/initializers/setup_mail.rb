@@ -3,7 +3,7 @@ ActionMailer::Base.smtp_settings = {
 	:port					=> "587",
 	:domain					=> "casecycling.com",
 	:user_name				=> "postmaster@casecycling.com",
-	:password				=> "0obs-jnzjg02",
+	:password				=> ENV['MAILGUN_PASSWORD'],
 	:authentication 		=> "plain"
 }
 
