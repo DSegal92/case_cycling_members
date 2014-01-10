@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131222233141) do
+ActiveRecord::Schema.define(:version => 20140104210202) do
 
   create_table "blogs", :force => true do |t|
     t.string    "title"
@@ -105,6 +105,8 @@ ActiveRecord::Schema.define(:version => 20131222233141) do
     t.boolean   "is_verified"
     t.integer   "equipment_id"
     t.integer   "position_ids"
+    t.string    "creation_hex"
+    t.boolean   "is_confirmed"
   end
 
   create_table "members_positions", :id => false, :force => true do |t|
@@ -141,15 +143,15 @@ ActiveRecord::Schema.define(:version => 20131222233141) do
   end
 
   create_table "routes", :force => true do |t|
-    t.string    "name"
-    t.string    "distance"
-    t.string    "elevation"
-    t.string    "url"
-    t.text      "description"
-    t.boolean   "verified"
-    t.timestamp "created_at",   :null => false
-    t.timestamp "updated_at",   :null => false
-    t.string    "map_polyline"
+    t.string   "name"
+    t.string   "distance"
+    t.string   "elevation"
+    t.string   "url"
+    t.text     "description"
+    t.boolean  "verified"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.text     "map_polyline", :limit => 255
   end
 
   create_table "sponsors", :force => true do |t|

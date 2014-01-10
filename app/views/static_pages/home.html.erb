@@ -1,5 +1,8 @@
 <% if !current_user %>
 <center>
+<% if flash[:notice] %>
+   <p class="flash-notice"><%= flash[:notice] %></p>
+ <% end %>
 <h1>Welcome to the Case Cycling Members Portal</h1>
 <p>In order to proceed further, you must sign up or log in</p>
 

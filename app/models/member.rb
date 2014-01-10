@@ -1,5 +1,5 @@
 class Member < ActiveRecord::Base
-  attr_accessible :is_admin, :is_officer, :name, :picture_url, :standing, :email, :password, :password_confirmation, :is_verified, :equipment_id, :position_id, :position_ids
+  attr_accessible :is_admin, :is_officer, :name, :picture_url, :standing, :email, :password, :password_confirmation, :is_verified, :equipment_id, :position_id, :position_ids, :is_confirmed, :confirmation_hex
   attr_accessor :password
   before_save :encrypt_password
 

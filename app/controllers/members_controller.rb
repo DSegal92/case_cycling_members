@@ -1,4 +1,5 @@
 class MembersController < ApplicationController
+  require 'securerandom'
   # GET /members
   # GET /members.json
   def index
@@ -13,6 +14,20 @@ class MembersController < ApplicationController
     end
   end
 end
+
+  def confirm
+    @email = params[:email]
+    @confirmation = params[:confirmation]
+    @member = Member.find_by_email(@email)
+    if @member.creation_hex = @confirmation
+      @member.is_confirmed = true
+      if @member.save
+        redirect_to root_url, :notice => "Your account has successfully been created, once an officer verifies your account you will be able to access this site."
+      else
+       redirect_to root_url, :notice => "Email or confirmation were invalid"
+      end
+    end
+  end
 
   # GET /members/1
   # GET /members/1.json
@@ -49,9 +64,13 @@ end
   # POST /members.json
   def create
     @member = Member.new(params[:member])
-
+    @member.creation_hex = SecureRandom.urlsafe_base64
     respond_to do |format|
       if @member.save
+        email = @member.email
+        name = @member.name
+        creation_hex = @member.creation_hex
+        AccountCreation.newAccount(email, name, creation_hex)
         format.html { redirect_to members_url, notice: 'Member was successfully created.' }
         format.json { render json: @member, status: :created, location: @member }
       else
