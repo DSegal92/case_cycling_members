@@ -6,8 +6,9 @@
     <th>Name</th>
     <th>Standing</th>
     <th>Picture URL</th>
-    <th>Officer</th>
+    <th>Confirmed</th>
     <th>Verified</th>
+    <th>Officer</th>
     <th>Admin</th>
     <th>Positions</th>
     <% if current_user && current_user.is_admin %>
@@ -28,14 +29,19 @@
     	<% end %>
     </td>
     <td>
-    	<% if member.is_officer %>
-    	✓
-    	<% end %>
-    </td>
+        <% if member.is_confirmed %>
+        ✓
+        <% end %>
+    </td>   
     <td>
     	<% if member.is_verified %>
     	✓
     	<% end %>
+    </td>
+     <td>
+        <% if member.is_officer %>
+        ✓
+        <% end %>
     </td>
     <td>
     	<% if member.is_admin %>
