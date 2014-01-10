@@ -70,7 +70,7 @@ end
         email = @member.email
         name = @member.name
         creation_hex = @member.creation_hex
-        AccountCreation.newAccount(email, name, creation_hex)
+        AccountCreation.newAccount(email, name, creation_hex).deliver
         format.html { redirect_to members_url, notice: 'Member was successfully created.' }
         format.json { render json: @member, status: :created, location: @member }
       else
