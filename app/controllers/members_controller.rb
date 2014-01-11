@@ -65,6 +65,7 @@ end
   def create
     @member = Member.new(params[:member])
     @member.creation_hex = SecureRandom.urlsafe_base64
+    @member.is_officer = false
     respond_to do |format|
       if @member.save
         email = @member.email
