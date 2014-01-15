@@ -11,14 +11,16 @@
     </div>
   <% end %>
 
+<div class="grid_12"><br/></div>
+
 <div class="grid_6">
   <div class="field">
-    <%= f.label :name %><br />
+   <span>Full Name</span><br />
     <%= f.text_field :name %>
   </div>
   <br />
   <div class="field">
-    <%= f.label :email %><br />
+    <span>Case Email Address</span><br />
     <%= f.text_field :email %>
   </div>
 </div>
@@ -38,6 +40,6 @@
 
   <div class="grid_12 actions">
   	<br />
-    <%= f.submit %>
+    <%= f.submit "Submit" %>
   </div>
 <% end %>

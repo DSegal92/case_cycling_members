@@ -15,6 +15,7 @@ class Member < ActiveRecord::Base
   			:presence => true,
   			:uniqueness => true,
   			:format => {:with => /@case.edu/,
+        :message => "must be an @case.edu address"
        }
 
   def self.authenticate(email, password)

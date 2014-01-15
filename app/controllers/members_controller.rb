@@ -71,8 +71,8 @@ end
         email = @member.email
         name = @member.name
         creation_hex = @member.creation_hex
-        AccountCreation.newAccount(email, name, creation_hex).deliver
-        format.html { redirect_to members_url, notice: 'Member was successfully created.' }
+        #AccountCreation.newAccount(email, name, creation_hex).deliver
+        format.html { redirect_to root_url, notice: 'You have successfully created an account, before you can be added as a dues paying member of the club please check your email to verify your email account.' }
         format.json { render json: @member, status: :created, location: @member }
       else
         format.html { render action: "new" }

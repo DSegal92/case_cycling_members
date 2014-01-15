@@ -1,4 +1,8 @@
 <h1>Log In</h1>
+<% if flash[:notice] %>
+   <p class="alert alert-danger"><%= flash[:notice] %></p>
+ <% end %>
+
 
 <%= form_tag sessions_path do %>
 	<p>

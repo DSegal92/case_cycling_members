@@ -1,7 +1,7 @@
 <% if !current_user %>
 <center>
 <% if flash[:notice] %>
-   <p class="flash-notice"><%= flash[:notice] %></p>
+   <p class="alert alert-success"><%= flash[:notice	] %></p>
  <% end %>
 <h1>Welcome to the Case Cycling Members Portal</h1>
 <p>In order to proceed further, you must sign up or log in</p>
@@ -12,11 +12,23 @@
 
 <% end %>
 
-<% if current_user && !current_user.is_verified %>
-	You have created an account, but must be verified by an officer
+<% if current_user && (!current_user.is_confirmed || !current_user.is_verified) %>
+<div class="centered">
+	<% if !current_user.is_confirmed %>
+	<p>Account Status: <b>Created</b></p>
+	<p>Your email account has not been verified. Please use the email sent to you by postmaster@casecycling.com to verify your email.</p>
+	<p>If you did not recieve an email, check your spam folder or contact <a href="mailto:<%=@secretary_email%>"><%=@secretary_email%></a></p>
+	<% end %>
+	<% if current_user.is_confirmed && !current_user.is_verified %>
+	<p>Account Status: <b>Confirmed</b></p>
+	<p>Your email address has been confirmed, once an officer verifies that you are a dues paying member you will have full access to the site.</p>
+	<p>You will recieve an email when you have been granted access, check your spam folder or contact <a href="mailto:<%=@secretary_email%>"><%=@secretary_email%></a> if a substantial amount of time has passed since you confirmed your email address.</p>
+	<% end %>
+</div>
 <% end %>
 
-<% if current_user && current_user.is_verified %>
+
+<% if current_user && current_user.is_verified && current_user.is_confirmed %>
 	<div class="grid_8">
 	<% @blogs.each do |blog| %>
 	<span class="title">
