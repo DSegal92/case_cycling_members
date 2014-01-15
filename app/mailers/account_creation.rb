@@ -14,6 +14,6 @@ class AccountCreation < ActionMailer::Base
   	@name = name
   	@email = email
   	@id = id
-  	mail(:to => "contactcasecycling@gmail.com", :subject => "[NOTICE] New User Account - @name")
+  	mail(:to => "contactcasecycling@gmail.com", :subject => "[NOTICE] New User Account - " + @name )
   end
 end
