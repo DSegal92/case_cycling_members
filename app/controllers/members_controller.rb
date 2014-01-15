@@ -22,6 +22,7 @@ end
     if @member.creation_hex = @confirmation
       @member.is_confirmed = true
       if @member.save
+        AccountCreation.newUser(@email, @member.name, @member.id).deliver
         redirect_to root_url, :notice => "Your account has successfully been created, once an officer verifies your account you will be able to access this site."
       else
        redirect_to root_url, :notice => "Email or confirmation were invalid"
@@ -71,7 +72,8 @@ end
         email = @member.email
         name = @member.name
         creation_hex = @member.creation_hex
-        #AccountCreation.newAccount(email, name, creation_hex).deliver
+        AccountCreation.newAccount(email, name, creation_hex).deliver
+
         format.html { redirect_to root_url, notice: 'You have successfully created an account, before you can be added as a dues paying member of the club please check your email to verify your email account.' }
         format.json { render json: @member, status: :created, location: @member }
       else
@@ -92,6 +94,9 @@ end
           @member.is_officer = true
         else
          @member.is_officer = false
+        end
+        if params[:member][:is_verified]
+          @member.is_confirmed = true
         end
          @member.save
         format.html { redirect_to @member, notice: 'Member was successfully updated.' }

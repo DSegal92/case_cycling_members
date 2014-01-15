@@ -35,18 +35,19 @@
 
   <% if current_user %>
   <% if current_user.is_admin %>
+    <% if !@member.is_confirmed %>
+      <div><b>Note: </b>Member hasn't confirmed their email address</div>
+    <% end %>
 <div class="grid_6">
+   
   <div class="field">
     <%= f.check_box :is_verified %>
     <%= f.label :is_verified %>
+    
   </div>
 
   <br />
- 
-    <div class="field">
-      <%= f.check_box :is_officer %>
-      <%= f.label :is_officer %>
-    </div>
+
     <br />
     <div class="field">
       <%= f.check_box :is_admin %>
