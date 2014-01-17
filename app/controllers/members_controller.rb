@@ -1,5 +1,6 @@
 class MembersController < ApplicationController
   require 'securerandom'
+  skip_filter :check_session, :only => [:new, :create]
   # GET /members
   # GET /members.json
   def index

@@ -143,15 +143,15 @@ ActiveRecord::Schema.define(:version => 20140104210202) do
   end
 
   create_table "routes", :force => true do |t|
-    t.string   "name"
-    t.string   "distance"
-    t.string   "elevation"
-    t.string   "url"
-    t.text     "description"
-    t.boolean  "verified"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
-    t.text     "map_polyline", :limit => 255
+    t.string    "name"
+    t.string    "distance"
+    t.string    "elevation"
+    t.string    "url"
+    t.text      "description"
+    t.boolean   "verified"
+    t.timestamp "created_at",   :null => false
+    t.timestamp "updated_at",   :null => false
+    t.text      "map_polyline"
   end
 
   create_table "sponsors", :force => true do |t|
