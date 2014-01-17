@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
   require 'securerandom'
-  skip_filter :check_session, :only => [:new, :create]
+  skip_filter :check_session, :only => [:new, :create, :confirm]
   # GET /members
   # GET /members.json
   def index
@@ -93,7 +93,9 @@ end
   def update
     if (current_user && current_user.can_edit)
       @member = Member.find(params[:id])
-    
+      email = @member.email
+      name = @member.name
+      @state = @member.is_verified
       respond_to do |format|
         if @member.update_attributes(params[:member])
            if (params[:member][:position_ids])
@@ -104,6 +106,10 @@ end
           if params[:member][:is_verified]
             @member.is_confirmed = true
           end
+          if (params[:member][:is_verified] != @state)
+            AccountCreation.confirmedAccount(email, name).deliver
+          end
+
            @member.save
           format.html { redirect_to @member, notice: 'Member was successfully updated.' }
           format.json { head :no_content }

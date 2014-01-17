@@ -16,4 +16,12 @@ class AccountCreation < ActionMailer::Base
   	@id = id
   	mail(:to => "contactcasecycling@gmail.com", :subject => "[NOTICE] New User Account - " + @name )
   end
+
+  def confirmedAccount(email, name)
+    @name = name
+    @email = email
+    mail(:to => email,
+          :subject => "Your Case Cycling Account is Now Active",
+          :reply_to => "noreply@casecycling.com")
+  end
 end
