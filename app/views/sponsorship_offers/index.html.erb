@@ -14,7 +14,7 @@
   <% @sponsorship_offers.each_with_index do |sponsorship_offer, index| %>
 
       <td><%= sponsorship_offer.name %></td>
-      <td><%= sponsorship_offer.description %></td>
+      <td><%= simple_format(sponsorship_offer.description) %></td>
       <% if current_user.can_edit %>
         <td><%= link_to 'Edit', edit_sponsorship_offer_path(sponsorship_offer) %></td>
         <td><%= link_to 'Destroy', sponsorship_offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
