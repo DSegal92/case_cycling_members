@@ -20,9 +20,13 @@
     <td><%= equipment.quantity %></td>
     <td>
       <ul id="withList">
+        <% if !equipment.member_ids.empty? %>
         <% equipment.member_ids.each do |id| %>
           <li><%= Member.find_by_id(id).name %></li>
-           <% end %>
+        <% end %>
+        <% else %>
+          <li>Case Cycling Toolbox</li>
+        <% end %>
     </ul>
      
     </td>

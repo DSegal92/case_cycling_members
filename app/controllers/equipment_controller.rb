@@ -73,6 +73,9 @@ class EquipmentController < ApplicationController
       redirect_to root_url
     else
     @equipment = Equipment.find(params[:id])
+    if !(params[:equipment][:registration])
+      @equipment.member_ids = []
+    end
     respond_to do |format|
       if @equipment.update_attributes(params[:equipment])
         format.html { redirect_to equipment_index_url, notice: 'Equipment was successfully updated.' }
