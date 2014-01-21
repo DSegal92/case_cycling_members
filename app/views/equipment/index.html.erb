@@ -30,7 +30,7 @@
     </ul>
      
     </td>
-    <td><a href="#">Request</td>
+   <!--  <td><a href="#">Request</td> -->
     <% if current_user && (current_user.is_officer || current_user.is_admin) %>
     <td><%= link_to 'Edit', edit_equipment_path(equipment) %></td>
     <td><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
