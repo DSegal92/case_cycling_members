@@ -105,4 +105,14 @@ class EquipmentController < ApplicationController
     end
     end
   end
+
+
+  # def request
+  #   name = current_user.name
+  #   email = current_user.email
+  #   EquipmentRequest.newRequest(name, email).deliver
+  #   respond_to do |format|
+  #     format.html { redirect_to equipment_index_url, notice: 'Your requestion has been sent to the Equipment Manager'}
+  #   end
+  # end
 end

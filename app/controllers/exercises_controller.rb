@@ -69,6 +69,7 @@ class ExercisesController < ApplicationController
     end
   end
 
+
   # DELETE /exercises/1
   # DELETE /exercises/1.json
   def destroy
