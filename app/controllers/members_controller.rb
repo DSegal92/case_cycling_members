@@ -72,10 +72,7 @@ end
   def create
     @member = Member.new(params[:member])
     @member.creation_hex = SecureRandom.urlsafe_base64
-<<<<<<< Updated upstream
     @member.is_officer = false
-=======
->>>>>>> Stashed changes
     respond_to do |format|
       if @member.save
         email = @member.email
