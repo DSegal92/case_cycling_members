@@ -18,7 +18,7 @@
 
   <div class="field">
     <%  f.label :ranking %><br />
-    <%= f.select :ranking, options_for_select(Position.all.collect {|p| [p.id ]} )%>
+    <%= f.select :ranking, options_for_select((1..15))%>
   </div>
   <div class="actions">
     <%= f.submit %>
