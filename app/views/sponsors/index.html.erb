@@ -2,9 +2,7 @@
 
 <table>
   <tr>
-    <th>Name</th>
     <th>Picture url</th>
-    <th>Description</th>
     <th>Url</th>
     <th></th>
     <th></th>
@@ -13,9 +11,10 @@
 
 <% @sponsors.each do |sponsor| %>
   <tr>
-    <td><%= sponsor.name %></td>
-    <td><%= sponsor.picture_url %></td>
-    <td><%= sponsor.description %></td>
+    <td><% if sponsor.picture_url %>
+      <a href="<%= sponsor.picture_url %>" title="Picture URL">Open</a>
+      <%end %>
+    </td>
     <td><%= sponsor.url %></td>
     <td><%= link_to 'Show', sponsor %></td>
     <td><%= link_to 'Edit', edit_sponsor_path(sponsor) %></td>

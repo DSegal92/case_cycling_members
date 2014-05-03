@@ -41,7 +41,7 @@ class SponsorsController < ApplicationController
   # POST /sponsors.json
   def create
     @sponsor = Sponsor.new(params[:sponsor])
-
+    @sponsor.tier = 2
     respond_to do |format|
       if @sponsor.save
         format.html { redirect_to @sponsor, notice: 'Sponsor was successfully created.' }
