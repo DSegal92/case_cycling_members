@@ -15,7 +15,7 @@
 
 <% @events.each do |event| %>
   <tr>
-    <td><%= event.date %></td>
+    <td><%= event.date.strftime("%I:%M%p - %m/%d/%Y") %></td>
     <td><%= event.name %></td>
     <td><%= event.location %></td>
     <% if current_user && current_user.is_admin %>
