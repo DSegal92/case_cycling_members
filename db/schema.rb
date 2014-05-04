@@ -149,14 +149,9 @@ ActiveRecord::Schema.define(:version => 20140104210202) do
     t.string    "url"
     t.text      "description"
     t.boolean   "verified"
-<<<<<<< Updated upstream
     t.timestamp "created_at",   :null => false
     t.timestamp "updated_at",   :null => false
     t.text      "map_polyline"
-=======
-    t.timestamp "created_at",  :null => false
-    t.timestamp "updated_at",  :null => false
->>>>>>> Stashed changes
   end
 
   create_table "sponsors", :force => true do |t|
